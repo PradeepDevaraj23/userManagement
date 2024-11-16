@@ -42,6 +42,7 @@ public class UserService {
         return userRepository.findById(id).map(this::toUserDto).orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
     }
 
+
     public UserDto updateUser(UserDto userDto) {
       User user = userRepository.findById(userDto.id()).orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
         if(!userDto.userName().isBlank() && !userDto.userName().equals(user.getUserName())){
